@@ -1,0 +1,408 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #050a14;
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #050a14 0%, #0a1220 100%);
+}
+
+.hero-content {
+  padding: 3rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: -1.5rem auto 0;
+  padding: 2rem;
+  background: rgba(5, 10, 20, 0.9);
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+/* Section */
+.section {
+  margin-bottom: 3rem;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 2rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  background: #0a1220;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #9ca3af;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #0f1a2e;
+  border-color: #3b82f6;
+  color: #60a5fa;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border-color: transparent;
+}
+
+/* Album Grid - عکس عمودی */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.album-item {
+  background: #0a1220;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.album-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.6);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* حالت پیش‌فرض عمودی */
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 13 / 16;
+}
+
+/* حالت افقی - بزرگتر */
+.image-wrapper.landscape {
+  aspect-ratio: 16 /5;
+  grid-column: span 1; /* پیش‌فرض */
+}
+
+/* برای گرید - عکس افقی */
+.album-item:has(.landscape) {
+  grid-column: span 2; /* ۲ برابر عرض بگیره */
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.album-item:hover .image-wrapper img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+.overlay i {
+  font-size: 2rem;
+  color: #60a5fa;
+}
+
+.album-info {
+  padding: 0.7rem 0.8rem;
+  text-align: center;
+}
+
+.album-info h3 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #d1d5db;
+  margin: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  margin: 3rem 0 1rem;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, #0a1220, #0d1628);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.cta-card i {
+  font-size: 2rem;
+  color: #3b82f6;
+  margin-bottom: 0.8rem;
+}
+
+.cta-card h3 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.cta-card p {
+  color: #6b7280;
+  margin-bottom: 1.2rem;
+  font-size: 0.85rem;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 1.5px solid #3b82f6;
+  color: #60a5fa;
+  text-decoration: none;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: #03070f;
+  color: #4b5563;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.footer-content p {
+  font-size: 0.8rem;
+}
+
+.footer-links {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #60a5fa;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #3b82f6;
+}
+/* Responsive - عکس‌های افقی در موبایل */
+@media (max-width: 768px) {
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  /* مهم: عکس‌های افقی در تبلت به حالت عادی برگردن */
+  .album-item:has(.landscape) {
+    grid-column: span 1 !important;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .cta-card {
+    padding: 1.2rem;
+  }
+
+  .cta-card h3 {
+    font-size: 1rem;
+  }
+
+  .close {
+    top: 10px;
+    right: 20px;
+    font-size: 1.8rem;
+  }
+
+  .filter-buttons {
+    gap: 0.4rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  /* باز هم برای موبایل کوچک */
+  .album-item:has(.landscape) {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-content {
+    padding: 2rem 1rem;
+  }
+
+  .album-info h3 {
+    font-size: 0.7rem;
+  }
+
+  .filter-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* برای موبایل خیلی کوچک (۳۲۰px) */
+@media (max-width: 400px) {
+  .album-grid {
+    grid-template-columns: 1fr; /* تبدیل به 1 ستون */
+    gap: 1rem;
+  }
+
+  .album-item:has(.landscape) {
+    grid-column: span 1 !important;
+  }
+}
